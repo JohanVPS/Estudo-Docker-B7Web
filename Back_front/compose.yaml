@@ -1,25 +1,48 @@
 services:
+  # BACKEND DEV
+  # backend-dev:
+  #   image: backend
+  #   container_name: backend
+  #   build: 
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
 
-  backend:
-    image: backend
-    container_name: backend
+  # BACKEND PROD
+  backend-prod:
+    image: backend-prod
+    container_name: backend-prod
     build: 
       context: ./backend
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
+    restart: always
 
-  frontend:
-    image: frontend
-    container_name: frontend
+  # FRONTEND DEV
+  # frontend-dev:
+  #   image: frontend
+  #   container_name: frontend
+  #   build: 
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 4000:3000
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  
+  # FRONTEND PROD
+  frontend-prod:
+    image: frontend-prod
+    container_name: frontend-prod
     build: 
       context: ./frontend
       dockerfile: Dockerfile
     ports:
       - 4000:3000
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
+    restart: always

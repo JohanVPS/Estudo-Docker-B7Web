@@ -1,12 +1,28 @@
+# VERSAO DEV
+# FROM node:22
+
+# WORKDIR /app
+
+# # ENV NEXT_PUBLIC_API_URL=http://localhost:3000
+
+# # COPY package*.json ./
+# COPY . .
+# RUN npm install
+# # RUN npm run build
+
+# CMD ["npm", "run", "dev"]
+
+
+# VERSAO PROD
 FROM node:22
 
 WORKDIR /app
 
-# ENV NEXT_PUBLIC_API_URL=http://localhost:3000
+ENV NEXT_PUBLIC_API_URL=http://localhost:3000
 
-# COPY package*.json ./
-COPY . .
+COPY package*.json ./
 RUN npm install
-# RUN npm run build
+COPY . .
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
