@@ -2,11 +2,11 @@ FROM node:22
 
 WORKDIR /app
 
-ENV NEXT_PUBLIC_API_URL=http://localhost:3000
+# ENV NEXT_PUBLIC_API_URL=http://localhost:3000
 
-COPY package*.json ./
-RUN npm install
+# COPY package*.json ./
 COPY . .
-RUN npm run build
+RUN npm install
+# RUN npm run build
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
