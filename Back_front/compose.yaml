@@ -22,6 +22,8 @@ services:
     ports:
       - 3000:3000
     restart: always
+    volumes:
+      - uploads:/app/uploads
 
   # FRONTEND DEV
   # frontend-dev:
@@ -46,3 +48,7 @@ services:
     ports:
       - 4000:3000
     restart: always
+
+
+volumes:
+  uploads:
