@@ -11,6 +11,13 @@ services:
       - 5432:5432
     volumes:
       - banco-data:/var/lib/postgresql/data
+  
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
 
 volumes:
   banco-data:
